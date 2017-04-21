@@ -650,10 +650,11 @@ namespace Chatterino.Controls
                                                 }
                                                 else
                                                 {
-                                                    if (hsl.Luminosity < 0.5f)
-                                                    {
-                                                        hsl = hsl.WithLuminosity(0.5f);
-                                                    }
+                                                        if (hsl.Luminosity < 0.5f)
+                                                        {
+                                                        hsl = hsl.WithSaturation(hsl.Saturation + (float)Math.Cos(hsl.Luminosity * Math.PI / 1) * 0.35f);  
+                                                        hsl = hsl.WithLuminosity(hsl.Luminosity+(float)Math.Cos(hsl.Luminosity*Math.PI)*0.45f);  
+                                                        }
 
                                                     if (hsl.Luminosity < 0.6f && hsl.Hue > 0.54444 && hsl.Hue < 0.8333)
                                                     {
